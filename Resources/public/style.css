@@ -1,0 +1,111 @@
+/* General */
+body {
+	font-family: Roboto;
+	font-weight: 100;
+	margin: 0;
+	padding: 0;
+}
+
+/* Header */
+body > header {
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	display: block;
+	width: 100%;
+	top: 0;
+}
+
+body > header > nav {
+	color: white;
+	width: 90%;
+	margin: 0 auto;
+	height: 75px;
+	background: #FF4136;
+	line-height: 75px;
+	-webkit-box-shadow: 0px 8px 21px 0px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:    0px 8px 21px 0px rgba(50, 50, 50, 0.5);
+	box-shadow:         0px 8px 21px 0px rgba(50, 50, 50, 0.5);
+}
+
+body > header > nav {
+	-webkit-transition: width 0.3s ease, height 0.4s ease, background 0.3s ease;
+	-moz-transition:    width 0.3s ease, height 0.4s ease, background 0.3s ease;
+	transition:         width 0.3s ease, height 0.4s ease, background 0.3s ease;
+}
+
+tbody {
+	-webkit-transition: all 3s ease;
+	-moz-transition:    all 3s ease;
+	transition:         all 3s ease;
+}
+body > header > nav.scroll {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background: rgba(255,255,255,0.9);
+	color: #467;
+}
+
+body > header > nav.scroll > ul > li > a {
+	color: #467;
+}
+body > header > nav.scroll > ul > li > a:hover {
+	color: #79A;
+}
+
+body > header > nav > ul {
+	margin: 0;
+	padding: 0 10px;
+}
+
+body > header > nav > ul > li {
+	list-style-type: none;
+	display: inline-block;
+	padding-right: 15px;
+}
+
+body > header > nav > ul > li > a {
+	color: white;
+	text-decoration: none;
+}
+
+body > header > nav > ul > li > a:hover {
+	color: #FFCCCC;
+}
+
+body > header > nav > ul > li.brand {
+	float: right;
+}
+
+body > header > nav > ul > li.brand > h1 {
+	margin: 0;
+	font-weight: 300;
+}
+
+/* Contenido */
+body > main > header {
+	height: 300px;
+	background: url(https://farm5.staticflickr.com/4050/4530396606_d8b64d69e6_b.jpg);
+	background-size: cover;
+	background-position: bottom center;
+	margin-bottom: 15px;
+}
+
+body > main > section {
+	width: 90%;
+	margin: 0 auto;
+	color: #666	;
+}
+
+body > main > section:before {
+	content: attr(title);
+	font-size: 36px;
+	color: #999;
+	font-weight: 400;
+	display: block;
+}
+
+section.no-header {
+	margin-top: 100px;
+}

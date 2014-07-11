@@ -1,0 +1,4 @@
+{% extends 'rotvulpixSymfonyTransbankBundle::base.html.twig' %}
+{% block body %}
+{{ render(controller('rotvulpixSymfonyTransbankBundle:WebPay:Checkout', { 'monto': monto }))}}
+{% endblock %}
