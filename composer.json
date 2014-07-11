@@ -1,9 +1,6 @@
 {
     "name": "rotvulpix/transbank-symfony2",
     "description": "Transbank - Webpay module for Symfony2.",
-    "require": {
-        "symfony/framework-bundle": "dev-master"
-    },
     "license": "MIT",
     "authors": [
         {
