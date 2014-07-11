@@ -1,3 +1,15 @@
-rotvulpix_symfony_transbank_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: rotvulpixSymfonyTransbankBundle:Default:index }
+rotvulpix_symfony_tbk_demo:
+    path:     /
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:Demo:Compra }
+
+rotvulpix_symfony_tbk_cierre:
+    path:     /WebPay/Cierre
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:WebPay:Cierre }
+
+rotvulpix_symfony_tbk_exito:
+    path:     /WebPay/Exito
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:WebPay:Exito }
+
+rotvulpix_symfony_tbk_fracaso:
+    path:     /WebPay/Fracaso
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:WebPay:Fracaso }
