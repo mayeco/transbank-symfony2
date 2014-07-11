@@ -1,0 +1,44 @@
+<section title="Pagar con WebPay">
+	<p>
+		Has elegido pagar con WebPay.
+	</p>
+	<p>
+		El monto total de su compra es de <b>$ {{ monto|number_format(0,'','.')}}</b> (IVA Incluído)
+	</p>
+</section>
+<section title="Detalle del Pedido">
+	<table>
+		<tr>
+			<th>Cantidad</th>
+			<th>Nombre</th>
+			<th>Unitario</th>
+			<th>Total</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Premium</td>
+			<td>${{ monto|number_format(0,'','.')}}</td>
+			<td>${{ monto|number_format(0,'','.')}}</td>
+		</tr>
+		<tr>
+			<th></th>
+			<th>Total a Pagar</th>
+			<th></th>
+			<th>${{ monto|number_format(0,'','.')}}</th>
+		</tr>
+
+	</table>
+	<h3>Favor confirmar su orden presionando 'Confirmar Pedido'</h3>
+	<form action="/cgi-bin/tbk_bp_pago.cgi" method="post">
+		<input type="hidden" name="TBK_TIPO_TRANSACCION" value="TR_NORMAL">
+		<input type="hidden" name="TBK_ORDEN_COMPRA" value="53bf66fb0a90f">
+		<input type="hidden" name="TBK_ID_SESION" value="53bf66fb0a959">
+		<input type="hidden" name="TBK_URL_EXITO" value="{{ path('rotvulpix_symfony_tbk_exito')}}">
+		<input type="hidden" name="TBK_URL_FRACASO" value="{{ path('rotvulpix_symfony_tbk_fracaso')}}">
+		<input type="hidden" name="TBK_MONTO" value="{{ monto * 100 }}">
+		<img src="http://fakeimg.pl/300x150" alt="WebPay">
+
+		<a href="#">Otros Métodos de Pago</a>
+		<input type="submit" name="submit" value="Confirmar Pedido" />
+	</form>
+</section>
