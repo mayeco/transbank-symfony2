@@ -1,0 +1,16 @@
+{
+    "name": "rotvulpix/transbank-symfony2",
+    "description": "Transbank - Webpay module for Symfony2.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Javier Godoy Núñez",
+            "email": "rotvulpix@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "rotvulpix\\Symfony\\TransbankBundle": "" }
+    },
+    "target-dir": "rotvulpix/Symfony/TransbankBundle",
+    "minimum-stability": "dev"
+}

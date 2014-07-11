@@ -1,0 +1,7 @@
+parameters:
+#    rotvulpix_symfony_transbank.example.class: rotvulpix\Symfony\TransbankBundle\Example
+
+services:
+#    rotvulpix_symfony_transbank.example:
+#        class: %rotvulpix_symfony_transbank.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

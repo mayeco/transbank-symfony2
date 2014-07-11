@@ -1,0 +1,3 @@
+rotvulpix_symfony_transbank_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:Default:index }
