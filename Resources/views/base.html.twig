@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Transbank - Symfony2</title>
+
+	<!-- CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/bundles/rotvulpixsymfonytransbank/style.css">
+	<link rel="stylesheet" href="/ng-table-master/ng-table.css">
+
+
+	<!-- Librerías JS -->
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<!-- Mambo! -->
+	<script src="./script.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		/* Chequear cada vez que se haga scroll */
+		$(window).scroll(function() {
+
+			/* Si el Scroll es mayor que 100 */
+			if($(window).scrollTop() > 150) {
+
+				/* Y si el header no tiene la clase scroll */
+				if(!$("body > header > nav").hasClass('scroll')) {
+					$("body > header > nav").addClass('scroll');
+				}
+
+			} else {
+				if($("body > header > nav").hasClass('scroll')) {
+					$("body > header > nav").removeClass('scroll');
+				}
+			}
+		});
+	</script>
+
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li class="brand"><h1>rot<b>vulpix</b></h1></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<header></header>
+		{% block body %}
+		{% endblock %}
+	</main>
+</body>
+</html>
