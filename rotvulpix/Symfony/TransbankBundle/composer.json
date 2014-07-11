@@ -8,5 +8,9 @@
             "email": "rotvulpix@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-0": { "rotvulpix\\Symfony\\TransbankBundle": "" }
+    },
+    "target-dir": "rotvulpix/Symfony/TransbankBundle",
     "minimum-stability": "dev"
 }
