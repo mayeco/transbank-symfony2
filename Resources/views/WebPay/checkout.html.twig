@@ -1,58 +1,68 @@
-<section title="Pagar con WebPay">
-	<p>
-		Has elegido pagar con WebPay.
-	</p>
-	<p>
-		El monto total de su compra es de <b>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</b> (IVA Incluído)
-	</p>
-</section>
-<section title="Detalle del Pedido">
-	<table>
-		<tr>
-			<th>Cantidad</th>
-			<th>Nombre</th>
-			<th>Unitario</th>
-			<th>Total</th>
-		</tr>
-		{% for item in transaccion.items %}
-		<tr>
-			<td>{{ item.cantidad }}</td>
-			<td>{{ item.nombre }}</td>
-			<td>$ {{ item.unitario|number_format(0,'','.')}}</td>
-			<td>$ {{ item.totalItem|number_format(0,'','.')}}</td>
-		</tr>
-		{% endfor %}
-		<tr>
-			<th></th>
-			<th>Neto</th>
-			<th></th>
-			<th>$ {{ transaccion.neto|number_format(0,'','.')}}</th>
-		</tr>
-		<tr>
-			<th></th>
-			<th>IVA</th>
-			<th></th>
-			<th>$ {{ transaccion.iva|number_format(0,'','.')}}</th>
-		</tr>
-		<tr>
-			<th></th>
-			<th>Total a Pagar</th>
-			<th></th>
-			<th>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</th>
-		</tr>
-
-	</table>
-	<h3>Favor confirmar su orden presionando 'Confirmar Pedido'</h3>
-	<form action="/cgi-bin/tbk_bp_pago.cgi" method="post">
-		<input type="hidden" name="TBK_TIPO_TRANSACCION" value="TR_NORMAL">
-		<input type="hidden" name="TBK_ORDEN_COMPRA" value="53bf66fb0a90f">
-		<input type="hidden" name="TBK_ID_SESION" value="53bf66fb0a959">
-		<input type="hidden" name="TBK_URL_EXITO" value="{{ path('rotvulpix_symfony_tbk_exito')}}">
-		<input type="hidden" name="TBK_URL_FRACASO" value="{{ path('rotvulpix_symfony_tbk_fracaso')}}">
-		<input type="hidden" name="TBK_MONTO" value="{{ transaccion.totalTransaccion * 100 }}">
+<section class="ui two column page grid" title="Pagar con WebPay">
+	<article class="column">
+		<p>
+			Has elegido pagar con WebPay.
+		</p>
+		<p>
+			El monto total de su compra es de <b>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</b> (IVA Incluído)
+		</p>
+	</article>
+	<article class="column">
 		<img src="/bundles/rotvulpixsymfonytransbank/logo_tbk_half.jpg" alt="WebPay">
+	</article>
+</section>
+<section class="ui two column page grid" title="Detalle del Pedido">
+	<article class="column">
+		<table class="ui basic table">
+			<tr>
+				<th>Cantidad</th>
+				<th>Nombre</th>
+				<th>Unitario</th>
+				<th>Total</th>
+			</tr>
+			{% for item in transaccion.items %}
+			<tr>
+				<td>{{ item.cantidad }}</td>
+				<td>{{ item.nombre }}</td>
+				<td>$ {{ item.unitario|number_format(0,'','.')}}</td>
+				<td>$ {{ item.totalItem|number_format(0,'','.')}}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<th></th>
+				<th>Neto</th>
+				<th></th>
+				<th>$ {{ transaccion.neto|number_format(0,'','.')}}</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>IVA</th>
+				<th></th>
+				<th>$ {{ transaccion.iva|number_format(0,'','.')}}</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Total a Pagar</th>
+				<th></th>
+				<th>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</th>
+			</tr>
 
-		<a href="#">Otros Métodos de Pago</a>
-		<input type="submit" name="submit" value="Confirmar Pedido" />
-	</form>
+		</table>
+	</article>
+	<article class="column">
+		<h3>Favor confirmar su orden presionando 'Confirmar Pedido'</h3>
+		<form action="/cgi-bin/tbk_bp_pago.cgi" method="post">
+			<input type="hidden" name="TBK_TIPO_TRANSACCION" value="TR_NORMAL">
+			<input type="hidden" name="TBK_ORDEN_COMPRA" value="53bf66fb0a90f">
+			<input type="hidden" name="TBK_ID_SESION" value="53bf66fb0a959">
+			<input type="hidden" name="TBK_URL_EXITO" value="{{ path('rotvulpix_symfony_tbk_exito')}}">
+			<input type="hidden" name="TBK_URL_FRACASO" value="{{ path('rotvulpix_symfony_tbk_fracaso')}}">
+			<input type="hidden" name="TBK_MONTO" value="{{ transaccion.totalTransaccion * 100 }}">
+			<div class="ui buttons">
+				<a href="#" class="ui button">Otros métodos de Pago</a>
+				<div class="or"></div>
+				<input type="submit" name="submit" value="Confirmar Pedido" class="ui positive button" />
+			</div>
+		</form>
+	</article>
 </section>

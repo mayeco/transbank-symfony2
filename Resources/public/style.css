@@ -109,3 +109,7 @@ body > main > section:before {
 section.no-header {
 	margin-top: 100px;
 }
+
+.or:before {
+	content: 'o' !important;
+}
