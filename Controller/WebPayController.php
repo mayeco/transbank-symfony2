@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class WebPayController extends Controller
 {
-    public function CheckoutAction($monto)
+    public function CheckoutAction($transaccion)
     {
-    	$parametros['monto'] = $monto;
+    	$parametros['transaccion'] = $transaccion;
         return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:checkout.html.twig', $parametros);
     }
 

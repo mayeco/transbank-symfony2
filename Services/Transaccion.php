@@ -22,4 +22,24 @@ class Transaccion
 		return $suma;
 	}
 
+	function getNeto() {
+		$total = $this->getTotalTransaccion();
+		$neto = $total / 1.19;
+		return round($neto);
+	}
+
+	function getIva() {
+		return $this->getTotalTransaccion() - $this->getNeto();
+	}
+
+	// Obtener Ítems de la Transacción
+	function getItems() {
+		return $this->items;
+	}
+
+	// Agregar Ítem a la transacción
+	function addItem(ItemTransaccion $item) {
+		$this->items[] = $item;
+	}
+
 }
