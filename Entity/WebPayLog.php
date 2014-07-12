@@ -71,7 +71,7 @@ class WebPayLog {
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 */
-	protecteed $idTransaccion;
+	protected $idTransaccion;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
