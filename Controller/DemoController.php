@@ -7,18 +7,40 @@ use rotvulpix\Symfony\TransbankBundle\Services\ItemTransaccion;
 use rotvulpix\Symfony\TransbankBundle\Services\Transaccion;
 class DemoController extends Controller
 {
-    public function CompraAction()
+    public function CompraAction() 
+    {
+        // Nuevo Ítem de Transacción
+        $transaccion = new Transaccion();
+
+        // Ítems
+        $manzanas = new ItemTransaccion(3990, 'Caja de Manzanas', 4);
+
+        // Agregar Ítems
+        $transaccion->addItem($manzanas);
+
+        // Añadimos Transacción al Render
+        $parametros['transaccion'] = $transaccion;
+
+        // Render
+        return $this->render('rotvulpixSymfonyTransbankBundle:Demo:compra.html.twig', $parametros);
+    }
+
+    public function WebPayAction()
     {
 
-    	$transaccion = new Transaccion();
+    	// Nuevo Ítem de Transacción
+        $transaccion = new Transaccion();
 
-    	// Ítems
-    	$manzanas = new ItemTransaccion(3990, 'Caja de Manzanas', 4);
+        // Ítems
+        $manzanas = new ItemTransaccion(3990, 'Caja de Manzanas', 4);
 
-    	// Agregar Ítems
-    	$transaccion->addItem($manzanas);
+        // Agregar Ítems
+        $transaccion->addItem($manzanas);
 
-    	$parametros['transaccion'] = $transaccion;
-        return $this->render('rotvulpixSymfonyTransbankBundle:Demo:compra.html.twig', $parametros);
+        // Añadimos Transacción al Render
+        $parametros['transaccion'] = $transaccion;
+
+        // Render
+        return $this->render('rotvulpixSymfonyTransbankBundle:Demo:webpay.html.twig', $parametros);
     }
 }

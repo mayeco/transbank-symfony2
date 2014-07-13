@@ -1,4 +1,43 @@
 {% extends 'rotvulpixSymfonyTransbankBundle::base.html.twig' %}
 {% block body %}
-{{ render(controller('rotvulpixSymfonyTransbankBundle:WebPay:Checkout', { 'transaccion': transaccion }))}}
+<section title="Resumen de su Compra">
+	<table class="ui basic table">
+		<tr>
+			<th>Cantidad</th>
+			<th>Nombre</th>
+			<th>Unitario</th>
+			<th>Total</th>
+		</tr>
+		{% for item in transaccion.items %}
+		<tr>
+			<td>{{ item.cantidad }}</td>
+			<td>{{ item.nombre }}</td>
+			<td>$ {{ item.unitario|number_format(0,'','.')}}</td>
+			<td>$ {{ item.totalItem|number_format(0,'','.')}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+			<th></th>
+			<th>Neto</th>
+			<th></th>
+			<th>$ {{ transaccion.neto|number_format(0,'','.')}}</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>IVA</th>
+			<th></th>
+			<th>$ {{ transaccion.iva|number_format(0,'','.')}}</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>Total a Pagar</th>
+			<th></th>
+			<th>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</th>
+		</tr>
+
+	</table>
+</section>
+<section title="Formas de Pago">
+	<a href="{{ path('rotvulpix_symfony_tbk_demo_checkout') }}" class="ui button positive">WebPay</a>
+</section>
 {% endblock %}

@@ -59,7 +59,7 @@
 			<input type="hidden" name="TBK_URL_FRACASO" value="{{ path('rotvulpix_symfony_tbk_fracaso')}}">
 			<input type="hidden" name="TBK_MONTO" value="{{ transaccion.totalTransaccion * 100 }}">
 			<div class="ui buttons">
-				<a href="#" class="ui button">Otros métodos de Pago</a>
+				<a href="{{ path('rotvulpix_symfony_tbk_demo') }}" class="ui button">Otros métodos de Pago</a>
 				<div class="or"></div>
 				<input type="submit" name="submit" value="Confirmar Pedido" class="ui positive button" />
 			</div>

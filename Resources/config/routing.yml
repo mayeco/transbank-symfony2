@@ -13,3 +13,7 @@ rotvulpix_symfony_tbk_exito:
 rotvulpix_symfony_tbk_fracaso:
     path:     /WebPay/Fracaso
     defaults: { _controller: rotvulpixSymfonyTransbankBundle:WebPay:Fracaso }
+
+rotvulpix_symfony_tbk_demo_checkout:
+    path:     /WebPay
+    defaults: { _controller: rotvulpixSymfonyTransbankBundle:Demo:WebPay }
