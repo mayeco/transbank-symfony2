@@ -1,4 +1,115 @@
 {% extends 'rotvulpixSymfonyTransbankBundle::base.html.twig' %}
 {% block body %}
-<section title="Exito">Yeah!</section>
+<section title="Su transacción fue realizada con éxito" class="ui two column page grid">
+	<article class="column">
+		<section class="ui piled blue segment">
+			<h2 class="ui header">
+				<i class="icon inverted circular blue comment"></i> Compra
+			</h2>
+			<table class="ui basic table">
+				<tr>
+					<th>Cantidad</th>
+					<th>Nombre</th>
+					<th>Unitario</th>
+					<th>Total</th>
+				</tr>
+				{% for item in transaccion.items %}
+				<tr>
+					<td>{{ item.cantidad }}</td>
+					<td>{{ item.nombre }}</td>
+					<td>$ {{ item.unitario|number_format(0,'','.')}}</td>
+					<td>$ {{ item.totalItem|number_format(0,'','.')}}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th></th>
+					<th>Neto</th>
+					<th></th>
+					<th>$ {{ transaccion.neto|number_format(0,'','.')}}</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>IVA</th>
+					<th></th>
+					<th>$ {{ transaccion.iva|number_format(0,'','.')}}</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>Total a Pagar</th>
+					<th></th>
+					<th>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</th>
+				</tr>
+
+			</table>
+		</section>
+	</article>
+	<article class="column">
+		<section class="ui piled blue segment">
+			<h2 class="ui header">
+				<i class="icon inverted circular blue comment"></i> Transacción
+			</h2>
+			<table>
+				<tr>
+					<th>Comercio</th>
+					<td>rotvulpix</td>
+				</tr>
+				<tr>
+					<th>Web Comercio</th>
+					<td>http://www.rotvulpix.cl</td>
+				</tr>
+				<tr>
+					<th>Cliente</th>
+					<td>Juanito P</td>
+				</tr>
+				<tr>
+					<th>Tipo de Transacción</th>
+					<td>Pago</td>
+				</tr>
+				<tr>
+					<th>Concepto</th>
+					<td>Pago de Servicios</td>
+				</tr>
+				<tr>
+					<th>Total Pagado</th>
+					<td>$4.000</td>
+				</tr>
+				<tr>
+					<th>Tipo de Pago</th>
+					<td>Redcompra</td>
+				</tr>
+				<tr>
+					<th>Número de Tarjeta</th>
+					<td>XXXX XXXX XXXX 1234</td>
+				</tr>
+				<tr>
+					<th>Cantidad de Cuotas</th>
+					<td>00</td>
+				</tr>
+				<tr>
+					<th>Tipo de Cuotas</th>
+					<td>Venta débito</td>
+				</tr>
+				<tr>
+					<th>Orden de Compra</th>
+					<td>1e3rfdst4</td>
+				</tr>
+				<tr>
+					<th>Código de Autorización</th>
+					<td>789012</td>
+				</tr>
+				<tr>
+					<th>Fecha</th>
+					<td>{{ "now"|date('d-m-Y @ h:i') }}</td>
+				</tr>
+			</table>
+			<div class="ui warning message">
+				<div class="header">
+					Importante!
+				</div>
+				En caso de requerir devoluciones o reembolsos favor de contactarse al departamento de cuentas corrientes al teléfono +56 2 xxxx xxxx o al mail hola@rotvulpix.cl
+			</div>
+		</section>
+	</article>
+</section>
+
 {% endblock %}
