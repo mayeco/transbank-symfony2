@@ -1,4 +1,30 @@
 {% extends 'rotvulpixSymfonyTransbankBundle::base.html.twig' %}
 {% block body %}
-<section title="Fracaso">Mal!</section>
+<section title="Transacción Fracasada" class="ui two column page grid">
+	<article class="column">
+		<section class="ui piled blue segment">
+			<h2 class="ui header">
+				<i class="icon inverted circular blue comment"></i> 
+				Posibles causas
+			</h2>
+			<section class="ui divided list">
+				<article class="item">
+					Error en el ingreso de los datos de su tarjeta de crédito o Debito (fecha y/o código de seguridad).
+				</article>
+				<article class="item">
+					Su tarjeta de crédito o debito no cuenta con el cupo necesario para cancelar la compra.
+				</article>
+				<article class="item">
+					Tarjeta aún no habilitada en el sistema financiero.
+				</article>
+			</section>
+			<div class="ui warning message">
+				<div class="header">
+					Nº Orden de Compra
+				</div>
+				53c21a02d6383
+			</div>
+		</section>
+	</article>
+</section>
 {% endblock %}

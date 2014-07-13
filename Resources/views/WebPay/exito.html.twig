@@ -39,8 +39,12 @@
 					<th></th>
 					<th>$ {{ transaccion.totalTransaccion|number_format(0,'','.')}}</th>
 				</tr>
-
 			</table>
+			<div class="ui buttons">
+				<a href="javascript:window.print()" class="ui button">Imprimir</a>
+				<div class="or"></div>
+				<a href="{{ path('rotvulpix_symfony_tbk_demo') }}" class="ui positive button">Continuar en el sitio</a>
+			</div>
 		</section>
 	</article>
 	<article class="column">
