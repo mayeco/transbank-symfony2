@@ -10,6 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="WebPayLog")
  */
 class WebPayLog {
+
+	private $estados = Array(1 => 'En Proceso', 2 => 'Aceptado', 3 => 'Aceptado-Pagado', 4 => 'Rechazado');
+
 	/**
 	 * @ORM\Id
 	 * @ORM\Column(type="integer")
@@ -38,8 +41,7 @@ class WebPayLog {
 	protected $idSesion;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="\rotvulpix\Symfony\TransbankBundle\Entity\WebPayEstado")
-	 * @ORM\JoinColumn(name="estado", referencedColumnName="id")
+	 * @ORM\Column(type="integer")
 	 */
 	protected $estado;
 

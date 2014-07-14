@@ -6,11 +6,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use rotvulpix\Symfony\TransbankBundle\Services\ItemTransaccion;
 use rotvulpix\Symfony\TransbankBundle\Services\Transaccion;
-
+use rotvulpix\Symfony\TransbankBundle\Entity\WebPayLog;
 class WebPayController extends Controller
 {
     public function CheckoutAction($transaccion)
     {
+        $log = new WebPayLog();
+        var_dump($log);
     	$parametros['transaccion'] = $transaccion;
         return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:checkout.html.twig', $parametros);
     }
