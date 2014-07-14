@@ -11,8 +11,9 @@ class WebPayController extends Controller
 {
     public function CheckoutAction($transaccion)
     {
+        // Creación de Log
         $log = new WebPayLog();
-        var_dump($log);
+
     	$parametros['transaccion'] = $transaccion;
         return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:checkout.html.twig', $parametros);
     }

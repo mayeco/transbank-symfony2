@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class WebPayLog {
 
+	// Estados predeterminados de Transacción
 	private $estados = Array(1 => 'En Proceso', 2 => 'Aceptado', 3 => 'Aceptado-Pagado', 4 => 'Rechazado');
 
 	/**
