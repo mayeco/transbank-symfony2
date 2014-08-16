@@ -1,5 +1,5 @@
 rotvulpix_symfony_tbk_demo:
-    path:     /
+    path:     /Compra
     defaults: { _controller: rotvulpixSymfonyTransbankBundle:Demo:Compra }
 
 rotvulpix_symfony_tbk_cierre:
