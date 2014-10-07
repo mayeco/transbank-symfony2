@@ -19,8 +19,17 @@ La Instalación es rápida. Consta de los siguientes pasos:
 $ php composer.phar require rotvulpix/transbank-symfony2 'dev-master'
 ```
 
-### Modificar AppKernel.php
+### Agregar a app/config/parameters.yml
 
+``` php
+...
+cgi_transbank: /ruta/a/cgi-bin/
+...
+```
+
+
+
+### Modificar AppKernel.php
 
 ``` php
 <?php
@@ -34,6 +43,8 @@ public function registerBundles()
     );
 }
 ```
+
+Posteriormente a esto, es necesario efectuar una migración o doctrine:schema:update para agregar la tabla WebPayLog a la DB. 
 
 Prueba
 --------------

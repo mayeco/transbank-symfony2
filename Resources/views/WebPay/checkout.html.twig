@@ -52,9 +52,9 @@
 	<article class="column">
 		<h3>Favor confirmar su orden presionando 'Confirmar Pedido'</h3>
 		<form action="/cgi-bin/tbk_bp_pago.cgi" method="post">
-			<input type="hidden" name="TBK_TIPO_TRANSACCION" value="TR_NORMAL">
-			<input type="hidden" name="TBK_ORDEN_COMPRA" value="53bf66fb0a90f">
-			<input type="hidden" name="TBK_ID_SESION" value="53bf66fb0a959">
+			<input type="hidden" name="TBK_TIPO_TRANSACCION" value="{{ tipo }}">
+			<input type="hidden" name="TBK_ORDEN_COMPRA" value="{{ ordenCompra }}">
+			<input type="hidden" name="TBK_ID_SESION" value="{{ idSesion }}">
 			<input type="hidden" name="TBK_URL_EXITO" value="{{ url('rotvulpix_symfony_tbk_exito')}}">
 			<input type="hidden" name="TBK_URL_FRACASO" value="{{ url('rotvulpix_symfony_tbk_fracaso')}}">
 			<input type="hidden" name="TBK_MONTO" value="{{ transaccion.totalTransaccion * 100 }}">
