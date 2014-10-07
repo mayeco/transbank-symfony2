@@ -1,6 +1,9 @@
 # Bootstrap
 app/bootstrap*
 
+# FTP
+sftp-config.json
+
 # Symfony directories
 vendor/*
 */logs/*
