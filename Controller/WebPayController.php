@@ -14,7 +14,7 @@ class WebPayController extends Controller
         // Creación de Log
         $log = new WebPayLog();
 
-    	$parametros['transaccion'] = $transaccion;
+        $parametros['transaccion'] = $transaccion;
         return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:checkout.html.twig', $parametros);
     }
 
@@ -44,6 +44,26 @@ class WebPayController extends Controller
 
     public function CierreAction()
     {
-        return new Response('ACEPTADO');
+        try {
+             /*
+                Obtener WebPayLog en base a:
+                TBK_ORDEN_COMPRA, TBK_ID_SESION, TBK_MONTO
+            */
+            $logTransaccion = true;
+
+            if(!$logTransaccion) { throw new \Exception("No Existe Log de Transacción"); }
+
+            /* Obtener $creada = $logTransaccion->creada() */
+            $creada = 0;
+            if($creada > 600) { throw new \Exception("Timeout de 10min Excedido"); }
+            
+            // Ha Pasado todos los Filtros  
+            return new Response('ACEPTADO');
+
+        } catch (\Exception $e) {
+
+            // Retornar Rechazo
+            return new Response('RECHAZADO');
+        }
     }
 }

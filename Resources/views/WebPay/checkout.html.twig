@@ -55,8 +55,8 @@
 			<input type="hidden" name="TBK_TIPO_TRANSACCION" value="TR_NORMAL">
 			<input type="hidden" name="TBK_ORDEN_COMPRA" value="53bf66fb0a90f">
 			<input type="hidden" name="TBK_ID_SESION" value="53bf66fb0a959">
-			<input type="hidden" name="TBK_URL_EXITO" value="{{ path('rotvulpix_symfony_tbk_exito')}}">
-			<input type="hidden" name="TBK_URL_FRACASO" value="{{ path('rotvulpix_symfony_tbk_fracaso')}}">
+			<input type="hidden" name="TBK_URL_EXITO" value="{{ url('rotvulpix_symfony_tbk_exito')}}">
+			<input type="hidden" name="TBK_URL_FRACASO" value="{{ url('rotvulpix_symfony_tbk_fracaso')}}">
 			<input type="hidden" name="TBK_MONTO" value="{{ transaccion.totalTransaccion * 100 }}">
 			<div class="ui buttons">
 				<a href="{{ path('rotvulpix_symfony_tbk_demo') }}" class="ui button">Otros métodos de Pago</a>
