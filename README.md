@@ -33,5 +33,20 @@ public function registerBundles()
         new rotvulpix\Symfony\TransbankBundle\rotvulpixSymfonyTransbankBundle(),
     );
 }
+```
 
+Prueba
+--------------
+```
+Utilizar con cualquier fecha de expiración y CVV: 123
+RUT: 11.111.111-1
+Contraseña: 123
+
+~ VISA
+Nº Tarjeta: 4051885600446623
+Resultado: Aprobado
+
+~ MASTERCARD
+Nº Tarjeta:￼5186059559590568
+Resultado: Rechazado
 ```
