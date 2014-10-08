@@ -75,7 +75,7 @@
 				</tr>
 				<tr>
 					<th>Total Pagado</th>
-					<td>$4.000</td>
+					<td>{{ logTransaccion.monto }}</td>
 				</tr>
 				<tr>
 					<th>Tipo de Pago</th>
@@ -83,11 +83,11 @@
 				</tr>
 				<tr>
 					<th>Número de Tarjeta</th>
-					<td>XXXX XXXX XXXX 1234</td>
+					<td>XXXX XXXX XXXX {{ logTransaccion.numeroTarjeta }}</td>
 				</tr>
 				<tr>
 					<th>Cantidad de Cuotas</th>
-					<td>00</td>
+					<td>{{ logTransaccion.cuotas }}</td>
 				</tr>
 				<tr>
 					<th>Tipo de Cuotas</th>
@@ -95,15 +95,15 @@
 				</tr>
 				<tr>
 					<th>Orden de Compra</th>
-					<td>1e3rfdst4</td>
+					<td>{{ logTransaccion.ordenCompra }}</td>
 				</tr>
 				<tr>
 					<th>Código de Autorización</th>
-					<td>789012</td>
+					<td>{{ logTransaccion.codigoAutorizacion }}</td>
 				</tr>
 				<tr>
 					<th>Fecha</th>
-					<td>{{ "now"|date('d-m-Y @ h:i') }}</td>
+					<td>{{ logTransaccion.fechaTransaccion|date('d-m-Y @ h:i') }}</td>
 				</tr>
 			</table>
 			<div class="ui warning message">

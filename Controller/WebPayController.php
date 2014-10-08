@@ -37,21 +37,36 @@ class WebPayController extends Controller
 
     public function ExitoAction()
     {
-        // Nuevo Ítem de Transacción
-        $transaccion = new Transaccion();
+        if(isset($_POST['TBK_ID_SESION']) && isset($_POST['TBK_ORDEN_COMPRA'])) {
 
-        // Ítems
-        $manzanas = new ItemTransaccion(3990, 'Caja de Manzanas', 4);
+            // Entity Manager
+            $em = $this->getDoctrine()->getManager();
 
-        // Agregar Ítems
-        $transaccion->addItem($manzanas);
+            // Obtener Log de Transacción
+            $paramLog = Array(
+                'sesion' => $_POST['TBK_ID_SESION'],
+                'ordenCompra' => $_POST['TBK_ORDEN_COMPRA']
+                );
 
-        // Añadimos Transacción al Render
-        $parametros['transaccion'] = $transaccion;
+            $logTransaccion = $em->getRepository('rotvulpixSymfonyTransbankBundle:WebPayLog')->findOneBy($paramLog);
+            if(!$logTransaccion) { throw new \Exception("No Existe Log de Transacción - " . json_encode($paramLog)); }
 
-        // Render
-        return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:exito.html.twig', $parametros);
-        
+            // Nuevo Ítem de Transacción
+            $transaccion = new Transaccion();
+
+            // Ítems
+            $manzanas = new ItemTransaccion(3990, 'Caja de Manzanas', 4);
+
+            // Agregar Ítems
+            $transaccion->addItem($manzanas);
+
+            // Añadimos Transacción al Render
+            $parametros['transaccion'] = $transaccion;
+            $parametros['logTransaccion'] = $logTransaccion;
+
+            // Render
+            return $this->render('rotvulpixSymfonyTransbankBundle:WebPay:exito.html.twig', $parametros);
+        }
     }
 
     public function FracasoAction()
@@ -91,7 +106,7 @@ class WebPayController extends Controller
             reset($_POST);
             $string = '';
             while (list($key, $val) = each($_POST))
-            { $string .= $key . '=' . $val . '&'; }
+                { $string .= $key . '=' . $val . '&'; }
             file_put_contents($rutaTXT, $string);
 
             // Chequeo MAC
@@ -100,7 +115,7 @@ class WebPayController extends Controller
             if($exec !== "CORRECTO") { throw new \Exception("Error en chequeo de MAC - " . $cmd); }
 
             // Actualizar Información
-            $logTransaccion->setEstado(WebPayLog::AceptadoPagado);
+            $logTransaccion->setEstado(WebPayLog::Aceptado);
             $logTransaccion->setRespuesta($_POST[ 'TBK_RESPUESTA' ]);
             $logTransaccion->setCodigoAutorizacion($_POST['TBK_CODIGO_AUTORIZACION']);
             $logTransaccion->setNumeroTarjeta($_POST['TBK_FINAL_NUMERO_TARJETA']);
